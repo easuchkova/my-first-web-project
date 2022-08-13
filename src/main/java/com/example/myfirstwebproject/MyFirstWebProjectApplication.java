@@ -11,3 +11,11 @@ public class MyFirstWebProjectApplication {
 	}
 
 }
+// mvc/http/
+
+// return String
+
+// get http
+
+// spring boot mvc // spring mvc endpoint // spring web
+//  как вернуть строчку в браузер через spring boot
