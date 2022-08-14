@@ -1,7 +1,9 @@
 package com.example.myfirstwebproject;
 
-@org.springframework.stereotype.Service
-public class Service {
+import org.springframework.stereotype.Service;
+
+@Service
+public class StringService {
     public String returnString () {
         return "Hello world!";
     }
