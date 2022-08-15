@@ -19,14 +19,4 @@ public class StringController {
     public String chooseString(@RequestParam int number) {
         return service.chooseString(number);
     }
-
-    @PostMapping("/addNumber")
-    public void addNumber(@RequestParam int number) {
-        service.addNumber(number);
-    }
-
-    @GetMapping("/isInList")
-    public boolean isInList(@RequestParam int number) {
-        return service.isInList(number);
-    }
 }
