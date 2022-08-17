@@ -1,7 +1,7 @@
-package com.example.myfirstwebproject.Controller;
+package com.example.myfirstwebproject.controllers;
 
-import com.example.myfirstwebproject.Service.CityService;
-import com.example.myfirstwebproject.Utilits.CityDTO;
+import com.example.myfirstwebproject.services.CityService;
+import com.example.myfirstwebproject.DTOs.CityDTO;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;

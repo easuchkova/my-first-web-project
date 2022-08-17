@@ -1,6 +1,6 @@
-package com.example.myfirstwebproject.Service;
+package com.example.myfirstwebproject.services;
 
-import com.example.myfirstwebproject.Utilits.Utils;
+import com.example.myfirstwebproject.utilits.Utils;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,6 +1,6 @@
-package com.example.myfirstwebproject.Controller;
+package com.example.myfirstwebproject.controllers;
 
-import com.example.myfirstwebproject.Service.ListNumberService;
+import com.example.myfirstwebproject.services.ListNumberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;

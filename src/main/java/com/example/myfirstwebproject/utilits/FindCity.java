@@ -1,31 +1,24 @@
-package com.example.myfirstwebproject.Utilits;
-
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.extern.slf4j.Slf4j;
-
+package com.example.myfirstwebproject.utilits;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Scanner;
+
+import com.example.myfirstwebproject.DTOs.CityDTO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
 @Slf4j
-@Data
-@AllArgsConstructor
-public class CityDTO {
-    private int id;
-    private String name;
-    private String region;
-    private String district;
-    private int population;
-    private String foundation;
+@Component
+public class FindCity {
 
     static Map<String, CityDTO> cityMap = getFromCsvFile();
 
-    public static CityDTO findCity(String name) throws IOException {
+    public static CityDTO findCity(String name) {
         return cityMap.get(name.toUpperCase());
     }
-
 
     public static Map<String, CityDTO> getFromCsvFile() {
         String fileName = "Задача ВС Java Сбер.csv";
@@ -39,7 +32,7 @@ public class CityDTO {
                 mapCities.put(city.getName().toUpperCase(), city);
             }
         } catch (IOException er) {
-            log.error(String.valueOf(er));
+            log.error("Cannot find or scan file", er);
         }
         return mapCities;
     }
@@ -56,10 +49,11 @@ public class CityDTO {
         int population = scanner.nextInt();
         String foundation;
 
-        if (scanner.hasNext()) foundation = scanner.next();
-        else foundation = "";
-
+        if (scanner.hasNext()) {
+            foundation = scanner.next();
+        } else {
+            foundation = "";
+        }
         return new CityDTO(id, name, region, district, population, foundation);
     }
 }
-

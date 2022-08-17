@@ -1,6 +1,6 @@
-package com.example.myfirstwebproject.Controller;
+package com.example.myfirstwebproject.controllers;
 
-import com.example.myfirstwebproject.Service.StringService;
+import com.example.myfirstwebproject.services.StringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 

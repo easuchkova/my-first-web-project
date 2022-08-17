@@ -1,7 +1,5 @@
-package com.example.myfirstwebproject.Utilits;
+package com.example.myfirstwebproject.utilits;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.*;
 
 //контроллеры // сервисы // утилиты //city model либо dto cityDTO? //Utilits/Ulits

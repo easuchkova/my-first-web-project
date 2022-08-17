@@ -1,12 +1,12 @@
 package com.example.myfirstwebproject.ListNumberServiceTests;
 
-import com.example.myfirstwebproject.Service.ListNumberService;
+import com.example.myfirstwebproject.services.ListNumberService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
 public class TestListNumberService {
 
-    ListNumberService service = new ListNumberService();
+    static ListNumberService service = new ListNumberService();
 
     @Test
     public void testAddNumber() {

@@ -1,6 +1,6 @@
 package com.example.myfirstwebproject.StringServiceTests;
 
-import com.example.myfirstwebproject.Service.StringService;
+import com.example.myfirstwebproject.services.StringService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
