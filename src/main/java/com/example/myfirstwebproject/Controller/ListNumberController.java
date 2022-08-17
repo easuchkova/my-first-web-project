@@ -1,5 +1,6 @@
-package com.example.myfirstwebproject;
+package com.example.myfirstwebproject.Controller;
 
+import com.example.myfirstwebproject.Service.ListNumberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -8,8 +9,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @RequiredArgsConstructor
-public class UlitsController {
-    private final UtilsService service;
+public class ListNumberController {
+    private final ListNumberService service;
 
     @PostMapping("/addNumber")
     public void addNumber(@RequestParam int number) {
@@ -21,8 +22,5 @@ public class UlitsController {
         return service.isInList(number);
     }
 
-    @GetMapping("/findCity")
-    public City findCity(@RequestParam String name){
-        return service.findCity(name);
-    }
+
 }

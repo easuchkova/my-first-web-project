@@ -1,11 +1,10 @@
-package com.example.myfirstwebproject;
+package com.example.myfirstwebproject.Service;
 
-import lombok.SneakyThrows;
+import com.example.myfirstwebproject.Utilits.Utils;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UtilsService {
-    Utils numbers = new Utils();
+public class ListNumberService {
 
     public String addNumber(int number) {
         return Utils.addNumber(number);
@@ -15,8 +14,4 @@ public class UtilsService {
         return Utils.isInList(number);
     }
 
-    @SneakyThrows
-    public City findCity(String name) {
-        return Utils.findCity(name);
-    }
 }

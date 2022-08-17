@@ -1,9 +1,6 @@
-package com.example.myfirstwebproject;
+package com.example.myfirstwebproject.Service;
 
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Service
 public class StringService {

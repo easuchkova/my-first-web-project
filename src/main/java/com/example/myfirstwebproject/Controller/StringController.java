@@ -1,5 +1,6 @@
-package com.example.myfirstwebproject;
+package com.example.myfirstwebproject.Controller;
 
+import com.example.myfirstwebproject.Service.StringService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,7 +17,7 @@ public class StringController {
 
     @GetMapping("/chooseString")
     @ResponseBody
-    public String chooseString(@RequestParam int number) {
+    public String chooseString(@RequestParam("number") int number) {
         return service.chooseString(number);
     }
 }
