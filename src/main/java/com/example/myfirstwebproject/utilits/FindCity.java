@@ -21,7 +21,7 @@ public class FindCity {
     }
 
     public static Map<String, CityDTO> getFromCsvFile() {
-        String fileName = "/Users/ekaterina/IdeaProjects/my-first-web-project/src/main/resources/Задача ВС Java Сбер.csv";
+        String fileName = "src/main/resources/Задача ВС Java Сбер.csv";
         File file = new File(fileName);
         Map<String, CityDTO> mapCities = new HashMap<>();
 
