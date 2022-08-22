@@ -14,7 +14,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class FindCity {
 
-    static Map<String, CityDTO> cityMap = getFromCsvFile();
+    private static Map<String, CityDTO> cityMap = getFromCsvFile();
 
     public static CityDTO findCity(String name) {
         return cityMap.get(name.toUpperCase());

@@ -3,10 +3,14 @@ package com.example.myfirstwebproject.ListNumberServiceTests;
 import com.example.myfirstwebproject.services.ListNumberService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class TestListNumberService {
 
-    static ListNumberService service = new ListNumberService();
+    @Autowired
+    private static ListNumberService service;
 
     @Test
     public void testAddNumber() {
