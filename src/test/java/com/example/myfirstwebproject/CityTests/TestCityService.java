@@ -11,7 +11,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestCityService {
 
     @Autowired
-    private static CityService service;
+    private CityService service;
 
     @Test
     public void testFindCity() {

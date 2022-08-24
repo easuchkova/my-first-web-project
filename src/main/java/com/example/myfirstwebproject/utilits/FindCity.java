@@ -14,10 +14,10 @@ import org.springframework.stereotype.Component;
 @Component
 public class FindCity {
 
-    private static Map<String, CityDTO> cityMap = getFromCsvFile();
+    private static final Map<String, CityDTO> CITY_DTO_MAP = getFromCsvFile();
 
     public static CityDTO findCity(String name) {
-        return cityMap.get(name.toUpperCase());
+        return CITY_DTO_MAP.get(name.toUpperCase());
     }
 
     public static Map<String, CityDTO> getFromCsvFile() {
