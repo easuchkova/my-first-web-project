@@ -10,6 +10,7 @@ import java.util.List;
 @Service
 public class PeopleService {
 
+    @Autowired
     private PersonDAO personDAO;
 
     public List<Person> index(){
