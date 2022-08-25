@@ -2,21 +2,26 @@ package com.example.myfirstwebproject.controllers;
 
 import com.example.myfirstwebproject.models.Person;
 import com.example.myfirstwebproject.services.PeopleService;
-import org.springframework.beans.factory.annotation.Autowired;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
 @RestController
+@RequiredArgsConstructor
 public class PeopleController {
 
-    @Autowired
-    private PeopleService service;
+    private final PeopleService service;
 
     @GetMapping("/people")
-    public List<Person> index(){
-       return service.index();
+    public List<Person> showALlPeople() {
+        return service.showAllPeople();
     }
 
+    @GetMapping("/people/find")
+    public Person findById(@RequestParam int id) {
+        return service.findById(id);
+    }
 }

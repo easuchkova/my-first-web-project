@@ -1,15 +1,15 @@
 package com.example.myfirstwebproject.DAOs;
 
 import com.example.myfirstwebproject.models.Person;
-import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
 
-@Component
-public class PersonDAO {
+@Repository
+public class PersonRepository {
     private static final String URL = "jdbc:postgresql://localhost:5432/postgres";
     private static final String USERNAME = "postgres";
     private static final String PASSWORD = "superpassword";
@@ -30,7 +30,7 @@ public class PersonDAO {
         }
     }
 
-    public List<Person> index(){
+    public static List<Person> showAllPeople() {
         List<com.example.myfirstwebproject.models.Person> people = new ArrayList<>();
 
         try {
@@ -38,7 +38,7 @@ public class PersonDAO {
             String SQL = "SELECT * FROM Person";
             ResultSet resultSet = statement.executeQuery(SQL);
 
-            while (resultSet.next()){
+            while (resultSet.next()) {
                 com.example.myfirstwebproject.models.Person person = new com.example.myfirstwebproject.models.Person();
 
                 person.setId(resultSet.getInt("id"));
@@ -54,5 +54,31 @@ public class PersonDAO {
         }
         return people;
     }
+
+    public static Person findById(int id) {
+        Person person;
+
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement("SELECT * FROM Person WHERE id=?");
+
+            preparedStatement.setInt(1, id);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            resultSet.next();
+
+            person = new Person();
+
+            person.setId(resultSet.getInt("id"));
+            person.setName(resultSet.getString("name"));
+            person.setAge(resultSet.getInt("age"));
+            person.setHasPet(resultSet.getBoolean("hasPet"));
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+
+        return person;
+    }
+
 
 }

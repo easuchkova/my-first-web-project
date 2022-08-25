@@ -1,6 +1,7 @@
 package com.example.myfirstwebproject.utilits;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Utils {
     private static final List<Integer> NUMBERS = new ArrayList<>();

@@ -1,16 +1,14 @@
 package com.example.myfirstwebproject.DTOs;
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
 
 @Data
-@AllArgsConstructor
 public class CityDTO {
-    private int id;
-    private String name;
-    private String region;
-    private String district;
-    private int population;
-    private String foundation;
+    private final int id;
+    private final String name;
+    private final String region;
+    private final String district;
+    private final int population;
+    private final String foundation;
 }
 

@@ -1,14 +1,14 @@
 package com.example.myfirstwebproject.utilits;
 
+import com.example.myfirstwebproject.DTOs.CityDTO;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
+
 import java.io.File;
 import java.io.IOException;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
-
-import com.example.myfirstwebproject.DTOs.CityDTO;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Component;
 
 @Slf4j
 @Component

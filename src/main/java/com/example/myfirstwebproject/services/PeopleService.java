@@ -1,8 +1,7 @@
 package com.example.myfirstwebproject.services;
 
-import com.example.myfirstwebproject.DAOs.PersonDAO;
+import com.example.myfirstwebproject.DAOs.PersonRepository;
 import com.example.myfirstwebproject.models.Person;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,11 +9,12 @@ import java.util.List;
 @Service
 public class PeopleService {
 
-    @Autowired
-    private PersonDAO personDAO;
+    public List<Person> showAllPeople() {
+        return PersonRepository.showAllPeople();
+    }
 
-    public List<Person> index(){
-        return personDAO.index();
+    public Person findById(int id) {
+        return PersonRepository.findById(id);
     }
 
 }
