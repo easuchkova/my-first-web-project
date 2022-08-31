@@ -1,4 +1,4 @@
-package com.example.myfirstwebproject.models;
+package com.example.myfirstwebproject.DTOs;
 
 import lombok.Data;
 
