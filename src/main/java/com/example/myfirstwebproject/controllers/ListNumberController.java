@@ -13,14 +13,13 @@ public class ListNumberController {
     private final ListNumberService service;
 
     @PostMapping("/addNumber")
-    public void addNumber(@RequestParam int number) {
+    public boolean addNumber(@RequestParam int number) {
         service.addNumber(number);
+        return true;
     }
 
     @GetMapping("/isInList")
     public boolean isInList(@RequestParam int number) {
         return service.isInList(number);
     }
-
-
 }

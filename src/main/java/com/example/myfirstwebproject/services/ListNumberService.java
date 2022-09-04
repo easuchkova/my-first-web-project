@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class ListNumberService {
 
-    public String addNumber(int number) {
+    public boolean addNumber(int number) {
         return Utils.addNumber(number);
     }
 

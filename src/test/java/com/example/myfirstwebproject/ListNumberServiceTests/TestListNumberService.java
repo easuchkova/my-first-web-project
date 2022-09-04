@@ -19,11 +19,10 @@ public class TestListNumberService {
         int number = 3;
 
         // when:
-        String actual = service.addNumber(number);
-        String expected = "done";
+        boolean actual = service.addNumber(number);
 
         // then:
-        Assertions.assertEquals(expected, actual);
+        Assertions.assertTrue(actual);
     }
 
     @Test

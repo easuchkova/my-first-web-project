@@ -6,9 +6,8 @@ import java.util.List;
 public class Utils {
     private static final List<Integer> NUMBERS = new ArrayList<>();
 
-    public static String addNumber(int number) {
-        NUMBERS.add(number);
-        return "done";
+    public static boolean addNumber(int number) {
+        return NUMBERS.add(number);
     }
 
     public static boolean isInList(int number) {

@@ -1,6 +1,6 @@
 package com.example.myfirstwebproject.repository;
 
-import com.example.myfirstwebproject.DTOs.Person;
+import com.example.myfirstwebproject.DTOs.PersonDTO;
 import com.example.myfirstwebproject.IncorrectAgeException;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,9 +38,8 @@ public class PersonRepository {
         }
     }
 
-    public static List<Person> showAllPeople() {
-        List<Person> people = new ArrayList<>();
-
+    public List<PersonDTO> showAllPeople() {
+        List<PersonDTO> people = new ArrayList<>();
 
         try {
             Statement statement = connection.createStatement();
@@ -48,9 +47,8 @@ public class PersonRepository {
 
             while (resultSet.next()) {
 
-                Person person;
+                PersonDTO person;
                 person = parsePersonInfo(resultSet);
-
                 people.add(person);
             }
 
@@ -60,55 +58,41 @@ public class PersonRepository {
         return people;
     }
 
-    public static Person findById(int id) {
-        Person person = null;
+    public PersonDTO findById(int id) {
+        PersonDTO person = null;
 
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_SELECT_BY_ID);
-
             preparedStatement.setInt(1, id);
-
             ResultSet resultSet = preparedStatement.executeQuery();
             resultSet.next();
-
             person = parsePersonInfo(resultSet);
 
         } catch (SQLException e) {
             log.error("Something went wrong. You have SQL Exception ", e);
         }
-
         return person;
     }
 
-    public static void addPerson(Person person) {
+    public void addPerson(PersonDTO person) throws IncorrectAgeException {
 
         if (person.getAge() < 0) {
-            try {
-                throw new IncorrectAgeException("Age cannot be less than 0, but you entered " + person.getAge());
-            } catch (IncorrectAgeException e) {
-                throw new RuntimeException(e);
-            }
+            throw new IncorrectAgeException("Age cannot be less than 0, but you entered " + person.getAge());
         }
-
         try {
             PreparedStatement preparedStatement = connection.prepareStatement(SQL_ADD_NEW_PERSON);
-
             preparedStatement.setString(1, person.getName());
             preparedStatement.setInt(2, person.getAge());
             preparedStatement.setBoolean(3, person.isHasPet());
-
             preparedStatement.executeUpdate();
-
 
         } catch (SQLException e) {
             log.error("Something went wrong ... ", e);
         }
-
-
     }
 
-    public static Person parsePersonInfo(ResultSet resultSet) {
-        Person person = new Person();
+    public PersonDTO parsePersonInfo(ResultSet resultSet) {
+        PersonDTO person = new PersonDTO();
 
         try {
             person.setId(resultSet.getInt("id"));
@@ -116,12 +100,9 @@ public class PersonRepository {
             person.setAge(resultSet.getInt("age"));
             person.setHasPet(resultSet.getBoolean("hasPet"));
 
-
         } catch (SQLException e) {
             log.error("Something went wrong. You have SQL Exception ", e);
         }
-
         return person;
     }
-
 }
