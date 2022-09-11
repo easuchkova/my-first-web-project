@@ -4,8 +4,9 @@ import lombok.Data;
 
 @Data
 public class PersonDTO {
-    private int id;
-    private String name;
-    private int age;
-    private boolean hasPet;
+    private final int id;
+    private final String name;
+    private final int age;
+    private final boolean hasPet;
+
 }

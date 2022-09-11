@@ -4,10 +4,7 @@ import com.example.myfirstwebproject.DTOs.PersonDTO;
 import com.example.myfirstwebproject.IncorrectAgeException;
 import com.example.myfirstwebproject.services.PersonService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -28,7 +25,12 @@ public class PersonController {
     }
 
     @PostMapping("/person/add")
-    public void addPerson(@RequestParam PersonDTO person) throws IncorrectAgeException {
+    public void addPerson(@RequestBody PersonDTO person) throws IncorrectAgeException {
         service.addPerson(person);
+    }
+
+    @PostMapping("/person/delete")
+    public void deletePerson(@RequestParam int id) {
+        service.deletePerson(id);
     }
 }
