@@ -9,4 +9,5 @@ public class PersonDTO {
     private final int age;
     private final boolean hasPet;
 
+
 }

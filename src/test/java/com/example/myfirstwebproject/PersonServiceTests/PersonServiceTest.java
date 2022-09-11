@@ -16,7 +16,6 @@ class PersonServiceTest {
     @Autowired
     private PersonService service;
 
-
     @Test
     public void findById() {
         int id = 1;

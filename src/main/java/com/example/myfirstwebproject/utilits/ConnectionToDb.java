@@ -11,7 +11,7 @@ import javax.sql.DataSource;
 @Configuration
 public class ConnectionToDb implements WebMvcConfigurer {
     @Bean
-    public DataSource dataSource () {
+    public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
 
         dataSource.setDriverClassName("org.postgresql.Driver");
@@ -23,9 +23,8 @@ public class ConnectionToDb implements WebMvcConfigurer {
     }
 
     @Bean
-    public JdbcTemplate jdbcTemplate () {
+    public JdbcTemplate jdbcTemplate() {
         return new JdbcTemplate(dataSource());
     }
-
-
 }
+

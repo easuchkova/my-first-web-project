@@ -13,6 +13,7 @@ import java.util.List;
 public class PersonService {
 
     public PersonRepository personRepository;
+
     public List<PersonDTO> showAllPeople() {
         return personRepository.showAllPeople();
     }
