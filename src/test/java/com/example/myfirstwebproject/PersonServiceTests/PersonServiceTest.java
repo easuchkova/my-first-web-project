@@ -1,3 +1,4 @@
+/*
 package com.example.myfirstwebproject.PersonServiceTests;
 
 import com.example.myfirstwebproject.DTOs.PersonDTO;
@@ -26,4 +27,4 @@ class PersonServiceTest {
         Assertions.assertEquals(expected, actual);
     }
 
-}
+}*/

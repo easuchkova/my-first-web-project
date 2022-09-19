@@ -1,6 +1,6 @@
 package com.example.myfirstwebproject.services;
 
-import com.example.myfirstwebproject.IncorrectAgeException;
+import com.example.myfirstwebproject.Exceptions.WebProjectException;
 import com.example.myfirstwebproject.repository.PersonRepository;
 import com.example.myfirstwebproject.DTOs.PersonDTO;
 import lombok.AllArgsConstructor;
@@ -22,9 +22,11 @@ public class PersonService {
         return personRepository.findById(id);
     }
 
-    public void addPerson(PersonDTO person) throws IncorrectAgeException {
-        if (person.getAge() < 0) {
-            throw new IncorrectAgeException("Age cannot be less than 0, but you entered " + person.getAge());
+    public void addPerson(PersonDTO person) throws WebProjectException {
+        if (person == null) {
+            throw new WebProjectException("You entered null person"); // эта ошибка не вылетит, потому что id добавляется автоматом и вот он уже не пустой
+        } else if (person.getAge() < 0) {
+            throw new WebProjectException("Age cannot be less than 0, but you entered " + person.getAge());
         } else {
             personRepository.addPerson(person);
         }

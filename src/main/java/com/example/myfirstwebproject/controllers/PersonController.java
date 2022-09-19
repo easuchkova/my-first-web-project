@@ -1,7 +1,7 @@
 package com.example.myfirstwebproject.controllers;
 
 import com.example.myfirstwebproject.DTOs.PersonDTO;
-import com.example.myfirstwebproject.IncorrectAgeException;
+import com.example.myfirstwebproject.Exceptions.WebProjectException;
 import com.example.myfirstwebproject.services.PersonService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +25,7 @@ public class PersonController {
     }
 
     @PostMapping("/person/add")
-    public void addPerson(@RequestBody PersonDTO person) throws IncorrectAgeException {
+    public void addPerson(@RequestBody PersonDTO person) throws WebProjectException {
         service.addPerson(person);
     }
 
