@@ -8,4 +8,10 @@ public class PersonDTO {
     private String name;
     private int age;
     private boolean hasPet;
+
+    public PersonDTO(int id, String name, int age, boolean hasPet) {
+    }
+
+    public PersonDTO() {
+    }
 }
