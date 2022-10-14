@@ -3,10 +3,13 @@ package com.example.myfirstwebproject.StringServiceTests;
 import com.example.myfirstwebproject.services.StringService;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.context.SpringBootTest;
 
+@SpringBootTest
 public class TestStringService {
-
-    StringService service = new StringService();
+    @Autowired
+    StringService service;
 
     @Test
     public void testReturnString() {

@@ -10,7 +10,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 public class TestListNumberService {
 
     @Autowired
-    private ListNumberService service;
+     ListNumberService service;
 
     @Test
     public void testAddNumber() {

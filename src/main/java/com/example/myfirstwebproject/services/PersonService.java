@@ -22,18 +22,18 @@ public class PersonService {
         return personRepository.findById(id);
     }
 
-    public void addPerson(PersonDTO person) throws WebProjectException {
+    public boolean addPerson(PersonDTO person) throws WebProjectException {
         if (person == null) {
             throw new WebProjectException("You entered null person"); // эта ошибка не вылетит, потому что id добавляется автоматом и вот он уже не пустой
         } else if (person.getAge() < 0) {
             throw new WebProjectException("Age cannot be less than 0, but you entered " + person.getAge());
         } else {
-            personRepository.addPerson(person);
+            return personRepository.addPerson(person);
         }
     }
 
-    public void deletePerson(int id) {
-        personRepository.deletePerson(id);
+    public boolean deletePerson(int id) {
+        return personRepository.deletePerson(id);
     }
 
 }

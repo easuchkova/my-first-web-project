@@ -32,16 +32,18 @@ public class PersonRepository {
                 .findFirst().orElseThrow();
     }
 
-    public void addPerson(PersonDTO person) {
+    public boolean addPerson(PersonDTO person) {
         Map<String, Object> params = new HashMap<>();
         params.put("name", person.getName());
         params.put("age", person.getAge());
         params.put("hasPet", person.isHasPet());
         jdbcTemplate.update(Q_PERSON_ADD, params);
+        return true;
     }
-    public void deletePerson(int id) {
+    public boolean deletePerson(int id) {
         Map<String, Object> params = new HashMap<>();
         params.put("id", id);
         jdbcTemplate.update(Q_PERSON_DELETE, params);
+        return true;
     }
 }
